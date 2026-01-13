@@ -1,3 +1,10 @@
+# ARCHIVED
+
+This doesn't actually work 🤦‍♂️ You need to verify each destination address even if they only differ by tag i.e. email+tag@some.tld must be separately verified from email@some.tld or email+other@some.tld
+
+Instead I've skipped the worker entirely and am just using a Catch-All to send all emails to my (verified) destination address, and am filtering in my destination inbox based on the original recipient
+
+<del>
 [cloudflare_email_workers]: https://developers.cloudflare.com/email-routing/email-workers/
 
 # Cloudflare Email Routing Worker
@@ -20,3 +27,4 @@ Version uploads occur automatically on pushes to main. After that, simply find t
 ## Update Wrangler Types
 
 [Types for Wrangler](./worker-configuration.d.ts) are generated automatically by `npm run build`
+</del>
