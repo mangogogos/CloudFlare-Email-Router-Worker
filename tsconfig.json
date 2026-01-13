@@ -1,0 +1,13 @@
+{
+	/* Adapted from: https://github.com/cloudflare/workers-sdk/blob/ad65efa73ae8b666e1669964ccacc2680b12c853/packages/create-cloudflare/templates/hello-world/ts/tsconfig.json */
+	"compilerOptions": {
+		"lib": ["ESNext"],
+		"module": "esnext",
+		"moduleResolution": "Bundler",
+		"noEmit": true,
+		"isolatedModules": true,
+		"strict": true,
+		"types": ["./worker-configuration.d.ts"]
+	},
+	"include": ["index.ts"]
+}

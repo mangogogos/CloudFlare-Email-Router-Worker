@@ -1,0 +1,24 @@
+{
+  "name": "cloudflare-email-router-worker",
+  "version": "1.0.0",
+  "description": "Routes <user>@mydomain.tld to myemail@myprovider.tld+<user>",
+  "homepage": "https://github.com/mangogogos/CloudFlare-Email-Router-Worker#readme",
+  "bugs": {
+    "url": "https://github.com/mangogogos/CloudFlare-Email-Router-Worker/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mangogogos/CloudFlare-Email-Router-Worker.git"
+  },
+  "license": "Unlicense",
+  "author": "Jacob Patenaude",
+  "type": "commonjs",
+  "main": "index.ts",
+  "scripts": {
+    "build": "wrangler types && tsc"
+  },
+  "dependencies": {
+    "typescript": "^5.9.3",
+    "wrangler": "^4.58.0"
+  }
+}
