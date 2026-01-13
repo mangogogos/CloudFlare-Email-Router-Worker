@@ -15,7 +15,7 @@ It forwards some specific emails to youremail@domain.tld and all others youremai
 
 ## Deploy
 
-Deployments occur automatically on pushes to main
+Version uploads occur automatically on pushes to main. After that, simply find the uploaded version in the CloudFlare dashboard and deploy
 
 ## Update Wrangler Types
 

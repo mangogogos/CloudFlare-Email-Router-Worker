@@ -1,4 +1,4 @@
-name: Deploy to CloudFlare
+name: Upload Worker to CloudFlare
 
 on:
   push:
@@ -8,16 +8,17 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy
+    name: Upload
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
-      - name: Deploy to Cloudflare Workers
+      - name: Upload Cloudflare Workers
         uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: versions upload
           secrets: |
             DESTINATION_EMAIL
             DIRECT_EMAIL_USERS
