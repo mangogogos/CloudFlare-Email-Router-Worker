@@ -1,9 +1,8 @@
-import { parseOneAddress } from 'email-addresses';
-import type { ParsedMailbox } from 'email-addresses';
+import { parseOneAddress, type ParsedMailbox } from 'email-addresses';
 
 interface CloudFlareVariables {
-  Email: string; // The destination email address. Format: `actualemail@domain.tld`. Should not include tag i.e. user+tag@domain.tld.
-  DirectMailUsers: string; // Email users for which mail is forwarded directly to the destination address. Format: `["user1", "user2"]`.
+  DESTINATION_EMAIL: string; // The destination email address. Format: `actualemail@domain.tld`. Should not include tag i.e. user+tag@domain.tld.
+  DIRECT_EMAIL_USERS: string; // Email users for which mail is forwarded directly to the destination address. Format: `["user1", "user2"]`.
 }
 
 const jsonParseSafe = (value: string): string | null => {
@@ -32,21 +31,17 @@ const routingLogic = (originalAddress: ParsedMailbox, destinationAddress: Parsed
 
 export default {
   async email(message: ForwardableEmailMessage, env: CloudFlareVariables): Promise<void> {
-    const destinationAddress = parseEmailAddress(env.Email);
-    if (!destinationAddress) {
-      message.setReject(`Could not parse destination address: ${env.Email}`);
+    const directMailUsers = jsonParseSafe(env.DIRECT_EMAIL_USERS);
+    const destinationAddress = parseEmailAddress(env.DESTINATION_EMAIL);
+    if (!Array.isArray(directMailUsers) ||!destinationAddress) {
+      console.error('Failed to parse environment variables', JSON.stringify(env))
+      message.setReject('Internal server error');
       return;
     }
 
     const originalAddress = parseEmailAddress(message.to);
     if (!originalAddress) {
       message.setReject(`Could not parse recipient address: ${message.to}`);
-      return;
-    }
-
-    const directMailUsers = jsonParseSafe(env.DirectMailUsers);
-    if (!Array.isArray(directMailUsers)) {
-      message.setReject(`Could not parse direct users: ${env.DirectMailUsers}`);
       return;
     }
 

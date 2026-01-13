@@ -1,7 +1,10 @@
 {
+	"$schema": "./node_modules/wrangler/config-schema.json",
 	"name": "cloudflare-email-router-worker",
 	"main": "index.ts",
 	"compatibility_date": "2026-01-12",
+	"workers_dev": false,
+	"minify": true,
 	"observability": {
 		"enabled": true
 	}
