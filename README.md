@@ -4,9 +4,9 @@ This doesn't actually work 🤦‍♂️ You need to verify each destination add
 
 Instead I've skipped the worker entirely and am just using a Catch-All to send all emails to my (verified) destination address, and am filtering in my destination inbox based on the original recipient
 
-<del>
 [cloudflare_email_workers]: https://developers.cloudflare.com/email-routing/email-workers/
 
+<del>
 # Cloudflare Email Routing Worker
 
 This repository contains the logic for a [**Cloudflare Email Worker**](cloudflare_email_workers) that is intended to be used as the action for a "Catch-All" email router
