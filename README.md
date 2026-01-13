@@ -1,7 +1,5 @@
 [cloudflare_email_workers]: https://developers.cloudflare.com/email-routing/email-workers/
 
-README Generated using Gemini 3 Pro. Always check official documentation as some steps may be incorrect or CloudFlare/GitHub may have made changes.
-
 # Cloudflare Email Routing Worker
 
 This repository contains the logic for a [**Cloudflare Email Worker**](cloudflare_email_workers) that is intended to be used as the action for a "Catch-All" email router. It forwards some specific emails to youremail@domain.tld and all others youremail+unknownuser@domain.tld.

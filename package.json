@@ -18,6 +18,7 @@
     "build": "wrangler types && tsc"
   },
   "dependencies": {
+    "email-addresses": "^5.0.0",
     "typescript": "^5.9.3",
     "wrangler": "^4.58.0"
   }
